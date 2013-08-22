@@ -1,0 +1,26 @@
+### /home/wik/.gitignore-boilerplates/Global/vim.gitignore
+
+.*.sw[a-z]
+*.un~
+Session.vim
+
+
+### /home/wik/.gitignore-boilerplates/Global/Linux.gitignore
+
+# .*
+!.gitignore
+*~
+
+# KDE
+.directory
+
+
+### /home/wik/.gitignore-boilerplates/Global/Tags.gitignore
+
+# Ignore tags created by etags and ctags
+TAGS
+!TAGS/
+tags
+!tags/
+
+

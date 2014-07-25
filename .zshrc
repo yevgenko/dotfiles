@@ -1,15 +1,12 @@
-# tmux 256color support
-alias tmux="TERM=screen-256color-bce tmux"
-alias mux="TERM=screen-256color-bce mux"
+# tmux force UTF-8
+alias tmux="tmux -u"
 
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# export ZSH_THEME="yeevgen"
-# export ZSH_THEME="yeevgen-min"
-export ZSH_THEME="gentoo2"
+export ZSH_THEME="kphoen"
 
 # Default editor
 export EDITOR="vim"
@@ -36,12 +33,13 @@ unsetopt correct_all
 
 # Customize to your needs...
 # Color listing
-eval $(dircolors ~/.dircolors)
+# brew install coreutils
+eval $(gdircolors ~/.dircolors)
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 alias df='df -h'
 alias du='du -s * -h'
-#alias ls='ls -ashF --color=auto'
+alias ls='gls -ashF --color=auto'
 alias ll='ls -al --color=auto'
 alias host='host -av'
 alias lsd='ls -ld *(-/DN)'
@@ -51,31 +49,16 @@ alias be='bundle exec'
 alias bip='bundle install --without production'
 alias ru='rbenv'
 
-# command line clipboard
-alias pbcopy='xclip -i -sel clipboard'
-alias pbpaste='xclip -o -sel clipboard'
-
-# Load tmuxinator into a shell session
-# [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
-# Load Pythonbrew into a shell session
-# [[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
-
-# Node version manager
-export N_PREFIX="$HOME/.local"
-
-# GitHub knowledge for git
-function git(){hub "$@"}
-
-# Android SDK
-export ANDROID_HOME="$HOME/Tools/adt-bundle-linux/sdk"
-
 # gibo (gitignore-boilerplates) completion
 # [[ -s $HOME/.gibo-completion.zsh ]] && source $HOME/.gibo-completion.zsh
-
-function gvim () { (/usr/bin/gvim -f "$@" &) }
 
 # better history navigation with arrows
 # http://superuser.com/a/418299/39162
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
+
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# When installing the postgres gem, including ARCHFLAGS is recommended
+export ARCHFLAGS="-arch x86_64"

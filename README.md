@@ -1,4 +1,4 @@
-# dotfiles
+# dotfiles for OS X
 
 ## Requirements
 
@@ -10,12 +10,6 @@
 
 ## Dependencies
 
-### xclip
-
-[xclip][] is a command line interface to the X11 clipboard.
-
-    sudo apt-get install xclip
-
 ### zsh
 
 * [oh-my-zsh][]
@@ -24,20 +18,21 @@
 ### tmux
 
 * [tmux][]
-* [tmuxinator][]
 
 ### vim
 
 * [vim][]
 * [dotvim][] my dot vim directory
 
+## powerline
 
-[Ubuntu]: http://www.ubuntu.com/
-[xclip]: http://sourceforge.net/projects/xclip/
+* [powerline][]
+
+
 [oh-my-zsh]: https://github.com/robbyrussell/oh-my-zsh
 [zsh-complections]: https://github.com/zsh-users/zsh-completions
 [tmux]: http://tmux.sourceforge.net/
-[tmuxinator]: https://github.com/aziz/tmuxinator
 [vim]: http://www.vim.org/
 [dotvim]: https://github.com/yevgenko/dotvim
 [vcsh]: https://github.com/RichiH/vcsh
+[powerline]: https://github.com/Lokaltog/powerline

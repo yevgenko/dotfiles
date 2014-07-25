@@ -1,5 +1,6 @@
 # tmux force UTF-8
 alias tmux="tmux -u"
+alias ta="tmux a"
 
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
@@ -62,3 +63,15 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # When installing the postgres gem, including ARCHFLAGS is recommended
 export ARCHFLAGS="-arch x86_64"
+
+# Bootstrap tmux session with the name of current directory
+function tn() {
+
+    if [ -z "$1" ]; then;
+        session_name=$(basename `pwd`)
+    else
+        session_name=$1
+    fi
+
+    tmux new-session -s $session_name -n 'main'
+}

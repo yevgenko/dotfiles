@@ -24,7 +24,7 @@
 * [vim][]
 * [dotvim][] my dot vim directory
 
-## powerline
+### powerline
 
 * [powerline][]
 

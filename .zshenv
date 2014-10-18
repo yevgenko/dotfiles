@@ -1,5 +1,5 @@
 typeset -U path
-path=(~/bin ~/.local/bin /usr/local/bin $path)
+path=(~/bin ~/.local/bin /usr/local/bin /usr/local/heroku/bin $path)
 [[ -s $HOME/Tools/elasticbeanstalk-cli/elasticbeanstalk-cli/bin ]] && path=($HOME/Tools/elasticbeanstalk-cli/elasticbeanstalk-cli/bin $path)
 [[ -s $HOME/Tools/IAMCli/bin ]] && path=($HOME/Tools/IAMCli/bin $path)
 [[ -s $HOME/Tools/adt-bundle-linux/sdk/tools ]] && path=($HOME/Tools/adt-bundle-linux/sdk/tools $path)

@@ -75,3 +75,15 @@ function tn() {
 
     tmux new-session -s $session_name -n 'main'
 }
+
+# phpbrew
+source ~/.phpbrew/bashrc
+
+# Docker Environment
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/wik/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
+# Java Home
+export JAVA_HOME=$(/usr/libexec/java_home)
+export JDK_HOME=$(/usr/libexec/java_home)

@@ -23,4 +23,9 @@ TAGS
 tags
 !tags/
 
+### LibreOffice
 
+.~lock.*
+
+### OSX
+.DS_Store

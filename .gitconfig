@@ -1,8 +1,8 @@
 [user]
-	name = Yevgeniy A. Viktorov
-	email = craftsman@yevgenko.me
+	name = Yevhen V.
+	email = wik@bdhr.co
 [core]
-	excludesfile = /home/wik/.gitignore
+	excludesfile = ~/.gitignore
 [merge "railsschema"]
 	name = newer Rails schema version
 	driver = "ruby -e '\n\

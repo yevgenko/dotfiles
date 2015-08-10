@@ -55,8 +55,8 @@ alias ru='rbenv'
 
 # better history navigation with arrows
 # http://superuser.com/a/418299/39162
-bindkey '\e[A' history-beginning-search-backward
-bindkey '\e[B' history-beginning-search-forward
+bindkey '^[OA' history-beginning-search-backward
+bindkey '^[OB' history-beginning-search-forward
 
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

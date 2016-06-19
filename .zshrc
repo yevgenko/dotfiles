@@ -27,7 +27,7 @@ export DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git github ruby rails3 bundler cap mvn command-not-found)
-plugins=(git)
+plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
@@ -45,7 +45,7 @@ alias ll='ls -al --color=auto'
 alias host='host -av'
 alias lsd='ls -ld *(-/DN)'
 alias grep='grep --color=auto'
-alias ack='ack-grep'
+# alias ack='ack-grep'
 alias be='bundle exec'
 alias bip='bundle install --without production'
 alias ru='rbenv'
@@ -55,8 +55,17 @@ alias ru='rbenv'
 
 # better history navigation with arrows
 # http://superuser.com/a/418299/39162
-bindkey '^[OA' history-beginning-search-backward
-bindkey '^[OB' history-beginning-search-forward
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
+# specificly for the vi-mode
+bindkey -M vicmd "k" history-beginning-search-backward
+bindkey -M vicmd "j" history-beginning-search-forward
+bindkey -M viins '^P' history-beginning-search-backward
+bindkey -M viins '^N' history-beginning-search-forward
+bindkey -M vicmd '/' history-incremental-search-backward
+bindkey -M vicmd '?' history-incremental-search-forward
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M viins '^F' history-incremental-search-forward
 
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -80,10 +89,17 @@ function tn() {
 source ~/.phpbrew/bashrc
 
 # Docker Environment
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/wik/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+# export DOCKER_HOST=tcp://192.168.59.103:2376
+# export DOCKER_CERT_PATH=/Users/wik/.boot2docker/certs/boot2docker-vm
+# export DOCKER_TLS_VERIFY=1
 
 # Java Home
 export JAVA_HOME=$(/usr/libexec/java_home)
 export JDK_HOME=$(/usr/libexec/java_home)
+
+# Locale quick fix
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Sencha CMD
+export PATH="/Users/wik/bin/Sencha/Cmd/6.1.2.15/..:$PATH"

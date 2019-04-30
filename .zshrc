@@ -39,7 +39,7 @@ eval $(gdircolors ~/.dircolors)
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 alias df='df -h'
-alias du='du -s * -h'
+alias du='du -sh'
 alias ls='gls -ashF --color=auto'
 alias ll='ls -al --color=auto'
 alias host='host -av'
@@ -49,6 +49,11 @@ alias grep='grep --color=auto'
 alias be='bundle exec'
 alias bip='bundle install --without production'
 alias ru='rbenv'
+alias wiki="cd ~/code/yevgenko/wiki;printf '\033kWIKI\033\\'"
+alias poh='git push origin HEAD'
+alias pooh='git push -u origin HEAD'
+
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 # gibo (gitignore-boilerplates) completion
 # [[ -s $HOME/.gibo-completion.zsh ]] && source $HOME/.gibo-completion.zsh
@@ -66,6 +71,9 @@ bindkey -M vicmd '/' history-incremental-search-backward
 bindkey -M vicmd '?' history-incremental-search-forward
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M viins '^F' history-incremental-search-forward
+
+# User bin
+path=($HOME/bin $path)
 
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -102,4 +110,34 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Sencha CMD
-export PATH="/Users/wik/bin/Sencha/Cmd/6.1.2.15/..:$PATH"
+# export PATH="/Users/wik/bin/Sencha/Cmd/6.1.2.15/..:$PATH"
+
+source $HOME/.cargo/env
+
+##
+# Kaggle Containers
+##
+
+kaggle-env(){
+  eval $(docker-machine env kaggle-vbox)
+}
+
+kaggle-start(){
+  docker-machine start kaggle-vbox
+}
+
+kpython(){
+  kaggle-env
+  docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it kaggle_python_plus python "$@"
+}
+
+ikpython() {
+  kaggle-env
+  docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it kaggle_python_plus ipython
+}
+
+kjupyter() {
+  kaggle-env
+  (sleep 3 && open "http://$(docker-machine ip kaggle-vbox):8888")&
+  docker run -v $PWD:/tmp/working -w=/tmp/working -p 8888:8888 --rm -it kaggle_python_plus jupyter notebook --no-browser --ip="0.0.0.0" --notebook-dir=/tmp/working --allow-root
+}

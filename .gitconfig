@@ -2,7 +2,7 @@
 	name = Yevhen V.
 	email = wik@bdhr.co
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/wik/.gitignore
 [merge "railsschema"]
 	name = newer Rails schema version
 	driver = "ruby -e '\n\
@@ -17,3 +17,9 @@
 	ci = commit
 	a = add
 	co = checkout
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

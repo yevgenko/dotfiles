@@ -32,3 +32,6 @@ tags
 
 ### POW!!
 .powenv
+
+### ipython notebook
+.ipynb_checkpoints
